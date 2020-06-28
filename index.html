@@ -7,8 +7,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link href="styles.d41d8cd98f00b204e980.bundle.css" rel="stylesheet"/></head>
+<link href="styles.bundle.css" rel="stylesheet"/></head>
 <body>
+  <!-- Github Pages hack to allow SPA refresh without receiving 404. -->
+  <script>
+    (function () {
+      // Retrieve the URL the user was trying to access when receiving the 404.
+      var redirect = sessionStorage.redirect;
+      // Remove the URL from sessionStorage.
+      delete sessionStorage.redirect;
+      // Check if we actually need to redirect.
+      if (redirect && redirect != location.href) {
+        // We need to redirect to the URL the user was trying to access.
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
+<!-- /Github Pages hack. -->
   <app-root>Loading...</app-root>
-<script type="text/javascript" src="inline.22f71ac05297adfc39f8.bundle.js"></script><script type="text/javascript" src="polyfills.cef6387d5ed5804d6d96.bundle.js"></script><script type="text/javascript" src="vendor.7e97e2536b8a17169864.bundle.js"></script><script type="text/javascript" src="main.c78abc821a4e978d8c9e.bundle.js"></script></body>
+
+<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
 </html>
